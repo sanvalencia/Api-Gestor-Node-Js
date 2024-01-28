@@ -1,0 +1,38 @@
+CREACION DE CRUD Y AUTH BACK
+
+-Se crea una carpeta llamada SRC, donde va todo el codigo del API
+-fuera se crea el package.json con nmp init -y
+-Instalar las dependencias express,nodemon,morgan,mongoose,bcryptjs
+-Dentro de SRC se crea un archivo llamado app.js, desde allí vamos a importar express, se crea una constante que almacenará un objeto se express será el servidor, agregamos el listen y el console log para verificar si funicona.
+- Dentro del archivo package, se agrega una propiedad llamada type:"module" para que lea los import realizados a los archivos js
+-En la carpeta SRC, se crea esta estructura
+routes: para controlar las rutas que el fron va a solicitar al back
+controllers: para escribir el codigo que el bacj se encargará de ejecutar
+libs: para escribir funicones que se reutilizaran en diferentes partes de la aplicacion
+middlewares: para progeter partes de la aplicacion de usuarios no y autentificados
+models: para especificar el tipo de dato que deseamos guardar en mogo
+shemas: para las validaciones cuando lleguen al back
+db.js : la base de datos
+index.js : llama al archivo de app, la base de datos y los servicios necesaios para arrancar la aplicacion
+config.js : Las configuraciones globales de la aplicacion
+
+CONFIGURACION DE BASE DE DATOS MONGO
+En el archivo db.js, importamos mongoose e intantamos hacer la conexion
+import mongoose from "mongoose";
+
+export const connectDB = async () => {
+    try{
+        await mongoose.connect("mongodb://localhost/merndb");
+        console.log("Db conneccted")
+    } catch (error){
+        console.log(error);
+    }
+};
+
+Con la conexion hecha, se necesita exportar al funcion al arranque de la aplicacion que seria index y se llama
+
+
+-Se crea un modelo en models llamado user.model.js y se le da la estrucctura al modelo y se exporta para poder manipularlo
+
+
+- 
